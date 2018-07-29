@@ -12,7 +12,7 @@ const config = {
 
 const app = express();
 
-app.post('/', line.middleware(config), (req, res) => {
+app.post('/webhook', line.middleware(config), (req, res) => {
   console.log(req.body.events);
   Promise
     .all(req.body.events.map(handleEvent))
