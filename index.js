@@ -36,10 +36,11 @@ function handleEvent(event) {
   }
 
   let replyText = '';
-  if (event.message.text === 'お疲れ様です') {
-    replyText = '疲れてない';
+  if (event.message.text === '天気教えて') {
+    replyText = 'ちょっとまってね';
+    getNodeVer(event.source.userId);
   } else {
-    replyText = 'うるさい';
+    replyText = event.message.text;
   }
 
   // create a echoing text message
@@ -50,6 +51,16 @@ function handleEvent(event) {
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
+}
+
+const getNodeVer = async (userId) => {
+  const res = await axios.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010');
+  const item = res.data;
+
+  await client.pushMessage(userId, {
+    type: 'text',
+    text: item.description.text,
+  });
 }
 
 // listen on port
