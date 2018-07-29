@@ -37,6 +37,7 @@ function handleEvent(event) {
 
   let replyText = '';
   if (event.message.text === '天気教えて') {
+    console.log(event.source.userId);
     replyText = 'ちょっとまってね';
     getNodeVer(event.source.userId);
   } else {
