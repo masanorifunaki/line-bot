@@ -2,6 +2,7 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
+const axios = require('axios');
 const bodyParser = require('body-parser');
 
 const config = {
