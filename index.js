@@ -2,6 +2,7 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
+const async = require('async');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 
