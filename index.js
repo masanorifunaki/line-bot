@@ -50,7 +50,7 @@ function handleEvent(event) {
   });
 }
 
-const getNodeVer = async (userId) => {
+const getNodeVer = async function (userId) {
   const res = await axios.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=400040');
   const item = res.data;
 
