@@ -2,6 +2,7 @@
 
 const express = require('express');
 const line = require('@line/bot-sdk');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 
 const config = {
@@ -11,7 +12,7 @@ const config = {
 
 const app = express();
 
-app.post('/webhook', line.middleware(config), (req, res) => {
+app.post('/', line.middleware(config), (req, res) => {
   console.log(req.body.events);
   Promise
     .all(req.body.events.map(handleEvent))
@@ -25,9 +26,16 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  let replyText = '';
+  if (event.message.text === 'こんにちは') {
+    replyText = 'こんばんわの時間ですよ';
+  } else {
+    replyText = 'うざ';
+  }
+
   return client.replyMessage(event.replyToken, {
     type: 'text',
-    text: event.message.text //実際に返信の言葉を入れる箇所
+    text: replyText
   });
 }
 
