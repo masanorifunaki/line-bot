@@ -35,10 +35,17 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
 
+  let replyText = '';
+  if (event.message.text === 'お疲れ様です') {
+    replyText = '疲れてない';
+  } else {
+    replyText = 'うるさい';
+  }
+
   // create a echoing text message
   const echo = {
     type: 'text',
-    text: event.message.text
+    text: replyText
   };
 
   // use reply API
