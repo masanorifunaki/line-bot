@@ -1,0 +1,8 @@
+{
+  "name": "derawo",
+  "description": "line-bot",
+  "repository": "https://github.com/masanorifunaki/line-bot",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}
