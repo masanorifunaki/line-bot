@@ -5,8 +5,8 @@ const line = require('@line/bot-sdk');
 const PORT = process.env.PORT || 3000;
 
 const config = {
-  channelAccessToken: '',
-  channelSecret: ''
+  channelAccessToken: process.env.channelAccessToken,
+  channelSecret: process.env.channelSecret
 };
 
 const app = express();
@@ -30,3 +30,6 @@ function handleEvent(event) {
     text: event.message.text //実際に返信の言葉を入れる箇所
   });
 }
+
+app.listen(PORT);
+console.log(`Server running at ${PORT}`);
