@@ -56,7 +56,7 @@ function handleEvent(event) {
 }
 
 const getNodeVer = async (userId) => {
-  const res = await axios.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010');
+  const res = await axios.get('http://weather.livedoor.com/forecast/webservice/json/v1?city=400040');
   const item = res.data;
 
   await client.pushMessage(userId, {
