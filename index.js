@@ -46,7 +46,7 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-  const echo = {
+  let echo = {
     type: 'text',
     text: replyText
   };
